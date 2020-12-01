@@ -20,7 +20,7 @@ target/
 *.ipr
 
 ### OUT FOLDER ###
-out/*
+out/
 /out/*
 
 ### NetBeans ###
