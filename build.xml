@@ -1,9 +1,50 @@
-<project name="nextFriday13" default="myTask" basedir=".">
+<project name="nextFriday13" default="jar" basedir=".">
+
+
+	<property name="prop_out_dir"  value="${basedir}/out"/>
+	<property name="prop_src_dir"  value="${basedir}/src"/>
+	<property name="prop_App"      value="${prop_src_dir}/main/java/App"/>
+	<property name="prop_App_Name" value="App"/>
+
 	
 	<target name="myTask">
-		<echo>ANT is woking for jenkins !</echo>
+		<echo>ANT is working for jenkins !</echo>
 		<echo>This ant line is edited from github !</echo>
 	</target>
+
+	<target name="clean" >
+		<echo>attempting to delete directory ${prop_out_dir}</echo>
+		<delete dir="${prop_out_dir}"/>
+	</target>
+
+
+	<target name="create" depends="clean">
+		<echo>attempting to create directory ${prop_out_dir}</echo>
+		<mkdir dir="${prop_out_dir}"/>
+	</target>
+
+	<target name="compile" depends="create">
+		<echo>attempting to compile</echo>
+		<mkdir dir="${prop_out_dir}/classes"/>
+		<javac srcdir="${prop_src_dir}" destdir="${prop_out_dir}/classes"/>
+	</target>
+
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${prop_out_dir}/jar"/>
+		<jar destfile="${prop_out_dir}/jar/${prop_App_Name}.jar" basedir="${prop_out_dir}/classes">
+			<manifest>
+				<attribute name="Main-Class" value="App"/>
+			</manifest>
+		</jar>
+	</target>
+
+
+	<target name="run">
+		<java jar="${prop_out_dir}/jar/${prop_App_Name}.jar" fork="true"/>
+	</target>
+
+
 
 
 </project>
