@@ -1,0 +1,8 @@
+<project name="nextFriday13" default="myTask" basedir=".">
+	
+	<target name="myTask">
+		<echo>ANT is woking for jenkins !</echo>
+	</target>
+
+
+</project>
