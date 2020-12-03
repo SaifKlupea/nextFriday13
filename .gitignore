@@ -23,6 +23,9 @@ target/
 out/
 /out/*
 
+### LIB ###
+
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -36,3 +39,5 @@ build/
 ### VS Code ###
 .vscode/
 .idea
+
+comp.bat

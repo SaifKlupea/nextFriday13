@@ -2,11 +2,21 @@
 
 
 	<property name="prop_out_dir"  value="${basedir}/out"/>
-	<property name="prop_src_dir"  value="${basedir}/src"/>
-	<property name="prop_App"      value="${prop_src_dir}/main/java/App"/>
+	<property name="prop_src_dir_main"  value="${basedir}/src/main"/>
+	<property name="prop_App"      value="${prop_src_dir_main}/java/App"/>
 	<property name="prop_App_Name" value="App"/>
+	<property name="prop_test_reports" value="${prop_out_dir}/test_reports"/>
+	<property name="prop_test_dir" value="${basedir}/src/test/"/>
 
-	
+
+
+
+	<path id="classpath">
+		<fileset dir="lib" includes="**/*.jar" />
+	</path>
+
+
+
 	<target name="myTask">
 		<echo>ANT is working for jenkins !</echo>
 		<echo>This ant line is edited from github !</echo>
@@ -26,7 +36,7 @@
 	<target name="compile" depends="create">
 		<echo>attempting to compile</echo>
 		<mkdir dir="${prop_out_dir}/classes"/>
-		<javac srcdir="${prop_src_dir}" destdir="${prop_out_dir}/classes"/>
+		<javac srcdir="${prop_src_dir_main}" destdir="${prop_out_dir}/classes"/>
 	</target>
 
 
@@ -45,6 +55,32 @@
 	</target>
 
 
+
+
+	<target name="runTests" >
+
+		<echo>attempting to run junit</echo>
+		<mkdir dir="${prop_test_reports}"/>
+
+		<junit printsummary="yes" haltonfailure="yes">
+			<classpath>
+				<pathelement location="${basedir}"/>
+				<pathelement location="C:\Users\Saif\.m2\repository\junit\junit\4.12\junit-4.12.jar"/>
+				<pathelement path="${java.class.path}"/>
+			</classpath>
+
+			<formatter type="plain"/>
+			<formatter type="xml"/>
+
+			<batchtest fork="yes" todir="${prop_test_reports}">
+				<fileset dir="${prop_test_dir}">
+					<include name="**/*Test*.java"/>
+				</fileset>
+			</batchtest>
+
+		</junit>
+
+	</target>
 
 
 </project>
