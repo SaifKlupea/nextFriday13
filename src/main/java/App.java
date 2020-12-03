@@ -31,5 +31,8 @@ public class App {
 
         log.info("next friday 13 is : "+nextFriday13.toString()
                 +"\n"+"will be in "+ ChronoUnit.DAYS.between(LocalDate.now(), nextFriday13)+" days");
+        
+        log.info("this line is edited from github");
+        
     }
 }
