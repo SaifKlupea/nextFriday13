@@ -23,7 +23,8 @@ public class AppTest {
     }
 
     @Test
-    public void main() {
+    public void mainTest() {
+        log.info("Running main Test");
         Assert.assertEquals("this test is success : ", 1, 1);
     }
 }
