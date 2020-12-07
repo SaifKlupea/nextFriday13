@@ -36,5 +36,10 @@ public class SecondTestClass {
         Assert.assertEquals("this second test is success : ", 1, 1);
     }
 
+    @Test
+    public void failTest(){
+
+        Assert.assertEquals("this test fails : ", 1 , 2);
+    }
 
 }
