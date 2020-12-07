@@ -3,9 +3,12 @@
 
 	<property name="prop_out_dir"  value="${basedir}/out"/>
 	<property name="prop_src_dir_main"  value="${basedir}/src/main"/>
+	<!--
 	<property name="prop_App"      value="${prop_src_dir_main}/java/App"/>
 	<property name="prop_App_Name" value="com.friday.app.App"/>
-	
+	-->
+	<property name="prop_App"      value="${prop_src_dir_main}/java/com/friday/app/App"/>
+	<property name="prop_App_Name" value="App"/>
 
 
 
