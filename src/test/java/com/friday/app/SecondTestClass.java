@@ -7,9 +7,11 @@ import org.junit.Test;
 
 import java.util.logging.Logger;
 
-public class AppTest {
+public class SecondTestClass {
 
-    private Logger log = Logger.getLogger(AppTest.class.getName());
+
+
+    private Logger log = Logger.getLogger(SecondTestClass.class.getName());
 
 
     @Before
@@ -23,14 +25,16 @@ public class AppTest {
     }
 
     @Test
-    public void mainTest() {
-        log.info("Running main Test");
+    public void secondClassMainTest() {
+        log.info("Running second class main Test");
         Assert.assertEquals("this test is success : ", 1, 1);
     }
 
     @Test
-    public void secondTest() {
-        log.info("Running second Test");
+    public void secondClassSecondTest() {
+        log.info("Running second class second Test");
         Assert.assertEquals("this second test is success : ", 1, 1);
     }
+
+
 }
