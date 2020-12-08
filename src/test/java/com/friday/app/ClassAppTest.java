@@ -1,9 +1,6 @@
 package com.friday.app;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.logging.Logger;
 
@@ -22,6 +19,7 @@ public class ClassAppTest {
     public void tearDown() throws Exception {
     }
 
+    @Ignore
     @Test
     public void fakeTest(){
         log.info("Running failure test");
