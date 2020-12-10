@@ -54,4 +54,18 @@
 
 
 
+	<target name="war">
+
+		<antcall target="jar"/>
+
+		<mkdir dir="${prop_out_dir}/war"/>
+		<war 	 needxmlfile="false"
+				destfile="${prop_out_dir}/war/${prop_App_Name}.war"> <!--webxml="WebContent/WEB-INF/web.xml" -->
+			<!-- <fileset dir="WebContent"/> -->
+			<!-- <lib dir="WebContent/WEB-INF/lib"/> -->
+			<classes dir="${prop_out_dir}/classes"/>
+		</war>
+	</target>
+
+
 </project>
