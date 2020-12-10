@@ -39,6 +39,7 @@
 	
 
 	<target name="jar" depends="compile">
+		<echo>attempting to compile create JAR ${prop_out_dir}/jar/${prop_App_Name}.jar</echo>
 		<mkdir dir="${prop_out_dir}/jar"/>
 		<jar destfile="${prop_out_dir}/jar/${prop_App_Name}.jar" basedir="${prop_out_dir}/classes">
 			<manifest>
@@ -49,6 +50,7 @@
 
 
 	<target name="run">
+		<echo>attempting to run the jar : ${prop_out_dir}/jar/${prop_App_Name}.jar</echo>
 		<java jar="${prop_out_dir}/jar/${prop_App_Name}.jar" fork="true"/>
 	</target>
 
@@ -56,13 +58,12 @@
 
 	<target name="war">
 
+		<echo>attempting to create the WAR : ${prop_out_dir}/war/${prop_App_Name}.war</echo>
 		<antcall target="jar"/>
-
 		<mkdir dir="${prop_out_dir}/war"/>
-		<war 	 needxmlfile="false"
-				destfile="${prop_out_dir}/war/${prop_App_Name}.war"> <!--webxml="WebContent/WEB-INF/web.xml" -->
-			<!-- <fileset dir="WebContent"/> -->
-			<!-- <lib dir="WebContent/WEB-INF/lib"/> -->
+		<war
+			needxmlfile="false"
+			destfile="${prop_out_dir}/war/${prop_App_Name}.war">
 			<classes dir="${prop_out_dir}/classes"/>
 		</war>
 	</target>
